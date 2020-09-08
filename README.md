@@ -23,4 +23,4 @@
 
 本demo主要参考**[SemiGlobalMatching](https://github.com/ethan-li-coding/SemiGlobalMatching)**,鉴于松博的版本对于windows比较友好,本版本主要适用于linux,直接编译即可运行.
 
-备注:松博也是我们「3D视觉从入门到精通」知识星球特邀嘉宾,欢迎大家一起来交流3D视觉的方方面面.
+备注:松博也是我们[3D视觉从入门到精通](https://mp.weixin.qq.com/s/xyGndcupuK1Zzmv1AJA5CQ)知识星球特邀嘉宾,欢迎大家一起来交流3D视觉的方方面面.
