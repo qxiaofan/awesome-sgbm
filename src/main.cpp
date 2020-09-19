@@ -22,13 +22,21 @@ int main(int argv, char** argc)
    cv::Mat img_right = cv::imread(path_right,cv::IMREAD_GRAYSCALE);
    
    cv::namedWindow("img_left_c",1);
-   cv::namedWindow("img_left",1);
-   cv::namedWindow("img_right",1);
    cv::imshow("img_left_c",img_left_c);
-   cv::imshow("img_left",img_left);
-   cv::imshow("img_right",img_right);
-   cv::waitKey(50);
 
+   cv::waitKey(30);
+
+   cv::namedWindow("img_left",1);
+   cv::imshow("img_left",img_left);
+
+   cv::waitKey(30);
+
+   cv::namedWindow("img_right",1);
+   cv::imshow("img_right",img_right);
+
+   cv::waitKey(30);
+  
+   
    if (img_left.data == nullptr || img_right.data == nullptr) {
         std::cout << "fail to read images" << std::endl;
         return -1;
@@ -57,6 +65,10 @@ int main(int argv, char** argc)
     // 候选视差范围
     sgm_option.min_disparity = argv < 4 ? 0 : atoi(argc[3]);
     sgm_option.max_disparity = argv < 5 ? 64 : atoi(argc[4]);
+    std::cout<<"argc[3]== "<<argc[3]<<std::endl;
+    std::cout<<"argc[4]== "<<argc[4]<<std::endl;
+    std::cout<<"sgm_option.min_disparity == "<<sgm_option.min_disparity<<std::endl;
+    std::cout<<"sgm_option.max_disparity == "<<sgm_option.max_disparity<<std::endl;
     // census窗口类型
     sgm_option.census_size = SemiGlobalMatching::Census5x5;
     // 一致性检查
@@ -116,7 +128,8 @@ int main(int argv, char** argc)
     
     cv::namedWindow("视差图",1);
     cv::namedWindow("视差图-伪彩",1);
-    cv::imshow("视差图", disp_mat);
+    cv::imshow("视差图", disp_mat);    
+
     cv::Mat disp_color;
     applyColorMap(disp_mat, disp_color, cv::COLORMAP_JET);
     cv::imshow("视差图-伪彩", disp_color);
@@ -138,7 +151,7 @@ int main(int argv, char** argc)
    delete[] bytes_right;
    bytes_right = nullptr;
 
-   system("pause");
+
    
    return 1;
 }
